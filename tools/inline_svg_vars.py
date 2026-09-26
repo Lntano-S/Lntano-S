@@ -3,29 +3,40 @@
 
 snk 生成的蛇把颜色表达成 CSS 变量（fill:var(--ce)）。遇到不认变量的渲染器
 （部分浏览器、图片预览器、某些客户端）变量不生效，fill 会退回黑色，整张图就是黑的。
-这个脚本把 var(--xx) 全部替换成它对应的色值，之后谁渲染都一样。
+把 var(--xx) 替换成对应色值，之后谁渲染都一样。
 
 用法：
-    python3 tools/inline_svg_vars.py dist
+    python3 tools/inline_svg_vars.py dist out    # 从 dist 读，写进 out（推荐）
+    python3 tools/inline_svg_vars.py dist        # 就地改写
+
+为什么要能换目录：snk 是 Docker action，容器里以 root 写出 dist/*.svg，
+runner 用户没权限覆盖它们，换个目录写就不用 sudo 了。
 """
 
 import pathlib
 import re
 import sys
 
-# 只输出 ASCII，避免某些环境 stdout 编码不是 UTF-8 时 print 直接报错退出
-def main(paths):
-    changed = 0
-    for folder in paths:
-        for path in sorted(pathlib.Path(folder).glob("*.svg")):
-            text = path.read_text(encoding="utf-8")
-            colors = re.findall(r"--([a-zA-Z0-9]+)\s*:\s*([^;}]+)", text)
-            for key, value in colors:
-                text = text.replace(f"var(--{key})", value.strip())
-            path.write_text(text, encoding="utf-8")
-            print(f"inlined {len(colors)} vars -> {path.name}")
-            changed += 1
-    print(f"done, {changed} file(s)")
+
+def inline(text: str) -> str:
+    for key, value in re.findall(r"--([a-zA-Z0-9]+)\s*:\s*([^;}]+)", text):
+        text = text.replace(f"var(--{key})", value.strip())
+    return text
+
+
+def main(args) -> int:
+    src = pathlib.Path(args[0])
+    dest = pathlib.Path(args[1]) if len(args) > 1 else src
+    if dest != src:
+        dest.mkdir(parents=True, exist_ok=True)
+
+    count = 0
+    for path in sorted(src.glob("*.svg")):
+        out = dest / path.name
+        out.write_text(inline(path.read_text(encoding="utf-8")), encoding="utf-8")
+        print(f"inlined -> {out}")
+        count += 1
+    print(f"done, {count} file(s)")
     return 0
 
 

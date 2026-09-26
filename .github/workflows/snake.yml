@@ -23,16 +23,18 @@ jobs:
             dist/github-snake.svg?color_snake=2E425A&color_dots=EBEDF0,C8E2F4,93C4E6,5E9FD0,2E5F87
             dist/github-snake-dark.svg?color_snake=C7E6FA&color_dots=3E5266,4E7BA8,5E9FD0,78B8E4,9FD2F0
 
-      # snk 把颜色写成 CSS 变量（fill:var(--ce)），不认变量的渲染器会让 fill 退回黑色，
-      # 整张图变黑。这一步把它们写死成色值。逻辑在仓库里的脚本，免得在 YAML 里塞 heredoc。
+      # snk 是 Docker action，容器里以 root 写出 dist/*.svg，runner 用户改不了那些文件，
+      # 所以这里读到 out/ 再写，不碰原文件，也不用 sudo。
       - name: Inline the CSS variables
         run: |
           python3 -V
-          python3 tools/inline_svg_vars.py dist
-          grep -o 'fill:[^;}]*' dist/github-snake-dark.svg | head -3
+          python3 tools/inline_svg_vars.py dist out
+          ls -l out
+          grep -o 'fill:[^;}]*' out/github-snake-dark.svg | head -3
+
       - uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
-          build_dir: dist
+          build_dir: out
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
