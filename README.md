@@ -15,7 +15,7 @@
 
 <div align="center">
 
-<img src="assets/chips/label-language.svg" alt="LANGUAGE" /> <img src="assets/chips/python.svg" alt="Python" /> <img src="assets/chips/c.svg" alt="C" /> <img src="assets/chips/cpp.svg" alt="C++" /> <img src="assets/chips/markdown.svg" alt="Markdown" />
+<img src="assets/chips/label-language.svg" alt="LANGUAGE" /> <img src="assets/chips/python.svg" alt="Python" /> <img src="assets/chips/cpp.svg" alt="C++" /> <img src="assets/chips/markdown.svg" alt="Markdown" />
 <br />
 <img src="assets/chips/label-system.svg" alt="SYSTEM" /> <img src="assets/chips/linux.svg" alt="Linux" /> <img src="assets/chips/popos.svg" alt="Pop!_OS" /> <img src="assets/chips/git.svg" alt="Git" /> <img src="assets/chips/vscode.svg" alt="VS Code" /> <img src="assets/chips/githubactions.svg" alt="GitHub Actions" />
 <br />
