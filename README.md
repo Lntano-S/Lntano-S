@@ -17,11 +17,15 @@
 
 <img src="assets/chips/label-language.svg" alt="LANGUAGE" /> <img src="assets/chips/python.svg" alt="Python" /> <img src="assets/chips/c.svg" alt="C" /> <img src="assets/chips/cpp.svg" alt="C++" /> <img src="assets/chips/markdown.svg" alt="Markdown" />
 <br />
-<img src="assets/chips/label-system.svg" alt="SYSTEM" /> <img src="assets/chips/linux.svg" alt="Linux" /> <img src="assets/chips/ubuntu.svg" alt="Ubuntu" /> <img src="assets/chips/git.svg" alt="Git" /> <img src="assets/chips/vscode.svg" alt="VS Code" />
+<img src="assets/chips/label-system.svg" alt="SYSTEM" /> <img src="assets/chips/linux.svg" alt="Linux" /> <img src="assets/chips/popos.svg" alt="Pop!_OS" /> <img src="assets/chips/git.svg" alt="Git" /> <img src="assets/chips/vscode.svg" alt="VS Code" /> <img src="assets/chips/githubactions.svg" alt="GitHub Actions" />
 <br />
-<img src="assets/chips/label-robotics.svg" alt="ROBOTICS" /> <img src="assets/chips/ros.svg" alt="ROS 2" /> <img src="assets/chips/opencv.svg" alt="OpenCV" /> <img src="assets/chips/pytorch.svg" alt="PyTorch" /> <img src="assets/chips/cmake.svg" alt="CMake" />
+<img src="assets/chips/label-robotics.svg" alt="ROBOTICS" /> <img src="assets/chips/ros.svg" alt="ROS 2" /> <img src="assets/chips/opencv.svg" alt="OpenCV" /> <img src="assets/chips/pytorch.svg" alt="PyTorch" /> <img src="assets/chips/cmake.svg" alt="CMake" /> <img src="assets/chips/unitree.svg" alt="Unitree SDK" />
 <br />
 <img src="assets/chips/label-notes.svg" alt="NOTES" /> <img src="assets/chips/numpy.svg" alt="NumPy" /> <img src="assets/chips/jupyter.svg" alt="Jupyter" /> <img src="assets/chips/obsidian.svg" alt="Obsidian" />
+<br />
+<img src="assets/chips/label-llms.svg" alt="LLMS" /> <img src="assets/chips/deepseek.svg" alt="DeepSeek" /> <img src="assets/chips/gemini.svg" alt="Gemini" />
+<br />
+<img src="assets/chips/label-agents.svg" alt="AGENTS" /> <img src="assets/chips/openhanako.svg" alt="OpenHanako" /> <img src="assets/chips/dsharness.svg" alt="DeepSeek Harness" />
 
 <details>
 <summary>🌱 &nbsp;<b>这些工具我拿来做什么</b></summary>
@@ -31,15 +35,19 @@
 | --- | --- |
 | **Python** | 课程作业、实验室脚本、数据和图像处理 |
 | **C / C++** | 数据结构与算法课的底子 |
-| **Linux** | 日常在 Ubuntu 上写代码，命令行比图形界面顺手 |
+| **Linux / Pop!_OS** | 日常在 Pop!_OS 上写代码，命令行比图形界面顺手 |
 | **Git / GitHub** | 笔记和代码都放这儿，版本管住了才敢改 |
+| **GitHub Actions** | 自动构建和部署，笔记站就是它推上去的 |
 | **VS Code** | 主力编辑器 |
 | **ROS 2** | 机器狗二次开发：节点、话题、DDS |
+| **Unitree SDK** | Go2 的官方 SDK，正在啃 |
 | **OpenCV** | 图像处理，实验室项目里用得上 |
 | **PyTorch / NumPy** | 深度学习和数值计算 |
 | **CMake** | C++ 项目的构建 |
 | **Jupyter** | 上课实验、试探性的代码 |
 | **Obsidian / Markdown** | 笔记和复盘都写成 Markdown |
+| **DeepSeek / Gemini** | 平时用得最多的两个模型 |
+| **OpenHanako / DeepSeek Harness** | 自己在用的智能体工具 |
 
 </details>
 
