@@ -40,12 +40,20 @@ ICONS = {
     "cmake": ("CMake", "#2E7FBF", "M11.769.066L.067 23.206l12.76-10.843zM23.207 23.934L7.471 17.587 0 23.934zM24 23.736L12.298.463l1.719 19.24zM12.893 12.959l-5.025 4.298 5.62 2.248z"),
 }
 
+# 每一行的分类标签：标签文字, 花瓣色, 花心色
+LABELS = {
+    "language": ("LANGUAGE", "#7FA36B", "#5E8B4F"),
+    "system": ("SYSTEM", "#E2A23B", "#B37C22"),
+    "robotics": ("ROBOTICS", "#F4795B", "#C25437"),
+    "notes": ("NOTES", "#6FA8C9", "#4A7F9E"),
+}
+
 # 每行放哪些（顺序即显示顺序）
 ROWS = [
-    ["python", "c", "cpp", "markdown"],
-    ["linux", "ubuntu", "git", "vscode"],
-    ["ros", "opencv", "pytorch", "cmake"],
-    ["numpy", "jupyter", "obsidian"],
+    ("language", ["python", "c", "cpp", "markdown"]),
+    ("system", ["linux", "ubuntu", "git", "vscode"]),
+    ("robotics", ["ros", "opencv", "pytorch", "cmake"]),
+    ("notes", ["numpy", "jupyter", "obsidian"]),
 ]
 
 FONT_SIZE = 12
@@ -57,6 +65,24 @@ TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 30" width
 <g transform="translate(11,8) scale(0.5833)"><path d="{d}" fill="{color}"/></g>
 <text x="30" y="19" font-size="12" font-weight="600" fill="{color}">{label}</text>
 </g>
+</svg>
+"""
+
+
+LABEL_TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 30" width="{w}" height="30" font-family="Segoe UI, -apple-system, Helvetica Neue, Helvetica, Arial, sans-serif">
+<title>{label}</title>
+<g transform="translate(14,15)">
+<g>
+<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="14s" repeatCount="indefinite"/>
+<circle cx="0" cy="-6.5" r="3.4" fill="{petal}"/>
+<circle cx="6.2" cy="-2" r="3.4" fill="{petal}"/>
+<circle cx="3.8" cy="5.3" r="3.4" fill="{petal}"/>
+<circle cx="-3.8" cy="5.3" r="3.4" fill="{petal}"/>
+<circle cx="-6.2" cy="-2" r="3.4" fill="{petal}"/>
+</g>
+<circle r="2.8" fill="{core}"/>
+</g>
+<text x="30" y="19" font-size="11" letter-spacing="1.5" fill="#8b949e">{label}</text>
 </svg>
 """
 
@@ -78,7 +104,7 @@ def text_width(s, size=FONT_SIZE):
 def build():
     OUT.mkdir(parents=True, exist_ok=True)
     written = []
-    for row_index, row in enumerate(ROWS):
+    for row_index, (label_key, row) in enumerate(ROWS):
         for i, key in enumerate(row):
             label, color, d = ICONS[key]
             w = round(30 + text_width(label) + 13)
@@ -94,6 +120,16 @@ def build():
             path = OUT / f"{key}.svg"
             path.write_text(svg, encoding="utf-8")
             written.append(path)
+
+        # 每行开头的分类标签
+        label, petal, core = LABELS[label_key]
+        w = round(30 + text_width(label, 11) + len(label) * 1.5 + 10)
+        path = OUT / f"label-{label_key}.svg"
+        path.write_text(
+            LABEL_TEMPLATE.format(w=w, label=label, petal=petal, core=core),
+            encoding="utf-8",
+        )
+        written.append(path)
     return written
 
 

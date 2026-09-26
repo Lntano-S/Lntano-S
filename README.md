@@ -15,13 +15,13 @@
 
 <div align="center">
 
-<img src="assets/chips/python.svg" alt="Python" /> <img src="assets/chips/c.svg" alt="C" /> <img src="assets/chips/cpp.svg" alt="C++" /> <img src="assets/chips/markdown.svg" alt="Markdown" />
+<img src="assets/chips/label-language.svg" alt="LANGUAGE" /> <img src="assets/chips/python.svg" alt="Python" /> <img src="assets/chips/c.svg" alt="C" /> <img src="assets/chips/cpp.svg" alt="C++" /> <img src="assets/chips/markdown.svg" alt="Markdown" />
 <br />
-<img src="assets/chips/linux.svg" alt="Linux" /> <img src="assets/chips/ubuntu.svg" alt="Ubuntu" /> <img src="assets/chips/git.svg" alt="Git" /> <img src="assets/chips/vscode.svg" alt="VS Code" />
+<img src="assets/chips/label-system.svg" alt="SYSTEM" /> <img src="assets/chips/linux.svg" alt="Linux" /> <img src="assets/chips/ubuntu.svg" alt="Ubuntu" /> <img src="assets/chips/git.svg" alt="Git" /> <img src="assets/chips/vscode.svg" alt="VS Code" />
 <br />
-<img src="assets/chips/ros.svg" alt="ROS 2" /> <img src="assets/chips/opencv.svg" alt="OpenCV" /> <img src="assets/chips/pytorch.svg" alt="PyTorch" /> <img src="assets/chips/cmake.svg" alt="CMake" />
+<img src="assets/chips/label-robotics.svg" alt="ROBOTICS" /> <img src="assets/chips/ros.svg" alt="ROS 2" /> <img src="assets/chips/opencv.svg" alt="OpenCV" /> <img src="assets/chips/pytorch.svg" alt="PyTorch" /> <img src="assets/chips/cmake.svg" alt="CMake" />
 <br />
-<img src="assets/chips/numpy.svg" alt="NumPy" /> <img src="assets/chips/jupyter.svg" alt="Jupyter" /> <img src="assets/chips/obsidian.svg" alt="Obsidian" />
+<img src="assets/chips/label-notes.svg" alt="NOTES" /> <img src="assets/chips/numpy.svg" alt="NumPy" /> <img src="assets/chips/jupyter.svg" alt="Jupyter" /> <img src="assets/chips/obsidian.svg" alt="Obsidian" />
 
 <details>
 <summary>🌱 &nbsp;<b>这些工具我拿来做什么</b></summary>
