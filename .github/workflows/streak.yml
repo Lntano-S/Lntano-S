@@ -61,10 +61,12 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- streak.svg streak-night.svg; then
+          # 先 add 再比对：第一次跑的时候两只卡还是未跟踪文件，
+          # git diff 是看不见未跟踪文件的，会误以为"没变化"而什么都不提交。
+          git add streak.svg streak-night.svg
+          if git diff --cached --quiet; then
             echo "streak cards unchanged"
             exit 0
           fi
-          git add streak.svg streak-night.svg
           git commit -m "🔥 streak sync"
           git push
