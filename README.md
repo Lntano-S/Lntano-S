@@ -1,0 +1,100 @@
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="header-night.svg" />
+    <img src="header.svg" width="900" alt="Lntano-S — 先长成一颗梧桐，再遇春风" />
+  </picture>
+</div>
+
+<div align="center">
+  <sub>人工智能 · 中南民族大学 · 智能机器人实验室</sub>
+</div>
+
+<br />
+
+<!-- ============ 工具箱 ============ -->
+
+<div align="center">
+
+<img src="assets/chips/python.svg" alt="Python" /> <img src="assets/chips/c.svg" alt="C" /> <img src="assets/chips/cpp.svg" alt="C++" /> <img src="assets/chips/markdown.svg" alt="Markdown" />
+<br />
+<img src="assets/chips/linux.svg" alt="Linux" /> <img src="assets/chips/ubuntu.svg" alt="Ubuntu" /> <img src="assets/chips/git.svg" alt="Git" /> <img src="assets/chips/vscode.svg" alt="VS Code" />
+<br />
+<img src="assets/chips/ros.svg" alt="ROS 2" /> <img src="assets/chips/opencv.svg" alt="OpenCV" /> <img src="assets/chips/pytorch.svg" alt="PyTorch" /> <img src="assets/chips/cmake.svg" alt="CMake" />
+<br />
+<img src="assets/chips/numpy.svg" alt="NumPy" /> <img src="assets/chips/jupyter.svg" alt="Jupyter" /> <img src="assets/chips/obsidian.svg" alt="Obsidian" />
+
+<details>
+<summary>🌱 &nbsp;<b>这些工具我拿来做什么</b></summary>
+<br />
+
+| | |
+| --- | --- |
+| **Python** | 课程作业、实验室脚本、数据和图像处理 |
+| **C / C++** | 数据结构与算法课的底子 |
+| **Linux** | 日常在 Ubuntu 上写代码，命令行比图形界面顺手 |
+| **Git / GitHub** | 笔记和代码都放这儿，版本管住了才敢改 |
+| **VS Code** | 主力编辑器 |
+| **ROS 2** | 机器狗二次开发：节点、话题、DDS |
+| **OpenCV** | 图像处理，实验室项目里用得上 |
+| **PyTorch / NumPy** | 深度学习和数值计算 |
+| **CMake** | C++ 项目的构建 |
+| **Jupyter** | 上课实验、试探性的代码 |
+| **Obsidian / Markdown** | 笔记和复盘都写成 Markdown |
+
+</details>
+
+</div>
+
+<br />
+
+<!-- ============ 数据 ============ -->
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=Lntano-S&amp;hide_border=true&amp;background=0D1117&amp;stroke=30363D&amp;ring=7FA36B&amp;fire=EE4C2C&amp;currStreakLabel=7FA36B&amp;sideLabels=C9D1D9&amp;dates=8B949E&amp;currStreakNum=E6EDF3&amp;sideNums=E6EDF3" />
+  <img width="495" src="https://streak-stats.demolab.com?user=Lntano-S&amp;hide_border=true&amp;background=FFFFFF&amp;stroke=E4E9E4&amp;ring=2F6B4F&amp;fire=EE4C2C&amp;currStreakLabel=2F6B4F&amp;sideLabels=57606A&amp;dates=8B949E&amp;currStreakNum=1F2328&amp;sideNums=1F2328" alt="连续贡献" />
+</picture>
+
+<br /><br />
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Lntano-S/Lntano-S/output/github-snake-dark.svg" />
+  <img src="https://raw.githubusercontent.com/Lntano-S/Lntano-S/output/github-snake.svg" alt="contribution snake" />
+</picture>
+
+</div>
+
+<br />
+
+<!-- ============ 我在做什么 ============ -->
+
+## 现在
+
+- **Go2 EDU 二次开发** — 在实验室把机器狗跑起来，边踩坑边整理成 [go2-edu-notes](https://github.com/Lntano-S/go2-edu-notes)
+- **SCMU CS Wiki** — 和同学一起维护学院的开源学习资料：[SCMU-Wiki/cs-wiki](https://github.com/SCMU-Wiki/cs-wiki)
+- **三本笔记** — [Python-note](https://github.com/Lntano-S/Python-note) · [cpp-note](https://github.com/Lntano-S/cpp-note) · [Linux-note](https://github.com/Lntano-S/Linux-note)
+- **课程之外** — 数据结构、线代、概率论，慢慢把底子补厚
+
+<br />
+
+## 关于
+
+中南民族大学人工智能专业 2025 级本科生，在智能机器人实验室做 Go2 EDU 的二次开发。
+
+事情喜欢先理清楚再动手：学过的东西先记下来，笔记整理到别人也看得懂，才算真的学会。
+
+<br />
+
+<!-- ============ 页脚 ============ -->
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="garden-footer-night.svg" />
+    <img src="garden-footer.svg" width="900" alt="遇事不决可问春风，春风不语且随本心" />
+  </picture>
+
+  <img src="https://komarev.com/ghpvc/?username=Lntano-S&amp;label=profile%20views&amp;color=6E9A63&amp;style=flat" alt="profile views" />
+
+  <sub>横幅与页脚的天气、季节由 <a href="https://github.com/yuki4266/living-scene">living-scene</a> 每小时重画；徽章生成脚本在 <a href="tools">tools</a>。</sub>
+</div>
