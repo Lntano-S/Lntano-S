@@ -6,6 +6,9 @@ on:
   # refresh every 12 hours
   schedule:
     - cron: "41 */12 * * *"
+  # run once on push too, so the first card gets baked right away
+  push:
+    branches: [main]
   # allow manual trigger from the Actions tab
   workflow_dispatch:
 
