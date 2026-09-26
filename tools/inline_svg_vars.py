@@ -3,7 +3,7 @@
 
 snk 生成的蛇把颜色表达成 CSS 变量（fill:var(--ce)）。遇到不认变量的渲染器
 （部分浏览器、图片预览器、某些客户端）变量不生效，fill 会退回黑色，整张图就是黑的。
-把 var(--xx) 替换成对应色值，之后谁渲染都一样。
+把 var(--xx) 替换成对应色值（并补上 # 号），之后谁渲染都一样。
 
 用法：
     python3 tools/inline_svg_vars.py dist out    # 从 dist 读，写进 out（推荐）
@@ -18,9 +18,19 @@ import re
 import sys
 
 
+HEX = re.compile(r"^[0-9a-fA-F]{3,8}$")
+
+
+def fix_color(value: str) -> str:
+    """snk 写进 CSS 变量里的色值是不带 # 号的（--ce:3E5266）。
+    照搬到 fill: 后面就成了非法值，严格的渲染器会退回黑色，所以补上 # 号。"""
+    v = value.strip()
+    return "#" + v if HEX.match(v) else v
+
+
 def inline(text: str) -> str:
     for key, value in re.findall(r"--([a-zA-Z0-9]+)\s*:\s*([^;}]+)", text):
-        text = text.replace(f"var(--{key})", value.strip())
+        text = text.replace(f"var(--{key})", fix_color(value))
     return text
 
 
