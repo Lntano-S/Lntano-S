@@ -1,40 +1,37 @@
-name: Snake
+name: generate snake animation
 
+# 照搬 yuki4266 的写法，只把配色换成蓝色系
 on:
+  # refresh every 12 hours
   schedule:
-    - cron: "0 16 * * *"
-  push:
-    branches: [main]
+    - cron: "0 */12 * * *"
+  # allow manual trigger from the Actions tab
   workflow_dispatch:
+  # also run on push to main
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: Platane/snk@v3
+      - name: generate github-contribution-grid-snake.svg
+        uses: Platane/snk/svg-only@v3
         with:
-          github_user_name: Lntano-S
+          github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake.svg?color_snake=2E425A&color_dots=EBEDF0,C8E2F4,93C4E6,5E9FD0,2E5F87
-            dist/github-snake-dark.svg?color_snake=C7E6FA&color_dots=3E5266,4E7BA8,5E9FD0,78B8E4,9FD2F0
+            dist/github-contribution-grid-snake.svg?color_snake=#2E5F87&color_dots=#EBEDF0,#C8E2F4,#93C4E6,#5E9FD0,#2E5F87
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#9FD2F0&color_dots=#1E2A36,#26435F,#33628F,#4B9FD6,#85BEE6
 
-      # snk 是 Docker action，容器里以 root 写出 dist/*.svg，runner 用户改不了那些文件，
-      # 所以这里读到 out/ 再写，不碰原文件，也不用 sudo。
-      - name: Inline the CSS variables
-        run: |
-          python3 -V
-          python3 tools/inline_svg_vars.py dist out
-          ls -l out
-          grep -o 'fill:[^;}]*' out/github-snake-dark.svg | head -3
-
-      - uses: crazy-max/ghaction-github-pages@v4
+      - name: push github-contribution-grid-snake.svg to the output branch
+        uses: crazy-max/ghaction-github-pages@v4.0.0
         with:
           target_branch: output
-          build_dir: out
+          build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
