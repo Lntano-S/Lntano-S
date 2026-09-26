@@ -23,21 +23,13 @@ jobs:
             dist/github-snake.svg?color_snake=2E425A&color_dots=EBEDF0,C8E2F4,93C4E6,5E9FD0,2E5F87
             dist/github-snake-dark.svg?color_snake=C7E6FA&color_dots=3E5266,4E7BA8,5E9FD0,78B8E4,9FD2F0
 
-      # snk 输出的颜色写成 CSS 变量（fill:var(--ce)），有些浏览器 / 预览器不认，
-      # 变量不生效时 fill 退回黑色，整张图就是全黑。这里直接写死成色值。
+      # snk 把颜色写成 CSS 变量（fill:var(--ce)），不认变量的渲染器会让 fill 退回黑色，
+      # 整张图变黑。这一步把它们写死成色值。逻辑在仓库里的脚本，免得在 YAML 里塞 heredoc。
       - name: Inline the CSS variables
         run: |
-          python3 - <<'PY'
-          import pathlib, re
-
-          for path in pathlib.Path("dist").glob("*.svg"):
-              text = path.read_text(encoding="utf-8")
-              for key, value in re.findall(r"--([a-z0-9]+):([^;}]+)", text):
-                  text = text.replace(f"var(--{key})", value)
-              path.write_text(text, encoding="utf-8")
-              print(path.name, "变量已写死")
-          PY
-
+          python3 -V
+          python3 tools/inline_svg_vars.py dist
+          grep -o 'fill:[^;}]*' dist/github-snake-dark.svg | head -3
       - uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
