@@ -23,7 +23,7 @@
 <br />
 <img src="assets/chips/label-notes.svg" alt="NOTES" /> <img src="assets/chips/numpy.svg" alt="NumPy" /> <img src="assets/chips/jupyter.svg" alt="Jupyter" /> <img src="assets/chips/obsidian.svg" alt="Obsidian" />
 <br />
-<img src="assets/chips/label-llms.svg" alt="LLMS" /> <img src="assets/chips/deepseek.svg" alt="DeepSeek" /> <img src="assets/chips/gemini.svg" alt="Gemini" />
+<img src="assets/chips/label-llms.svg" alt="LLMS" /> <img src="assets/chips/deepseek.svg" alt="DeepSeek" /> <img src="assets/chips/gemini.svg" alt="Gemini" /> <img src="assets/chips/qwen.svg" alt="Qwen" /> <img src="assets/chips/llama.svg" alt="Llama" />
 <br />
 <img src="assets/chips/label-agents.svg" alt="AGENTS" /> <img src="assets/chips/openhanako.svg" alt="OpenHanako" /> <img src="assets/chips/dsharness.svg" alt="DeepSeek Harness" />
 
@@ -46,7 +46,7 @@
 | **CMake** | C++ 项目的构建 |
 | **Jupyter** | 上课实验、试探性的代码 |
 | **Obsidian / Markdown** | 笔记和复盘都写成 Markdown |
-| **DeepSeek / Gemini** | 平时用得最多的两个模型 |
+| **DeepSeek / Gemini / Qwen / Llama** | 平时用得最多的几个模型 |
 | **OpenHanako / DeepSeek Harness** | 自己在用的智能体工具 |
 
 </details>
