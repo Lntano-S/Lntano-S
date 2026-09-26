@@ -28,26 +28,17 @@
 <img src="assets/chips/label-agents.svg" alt="AGENTS" /> <img src="assets/chips/openhanako.svg" alt="OpenHanako" /> <img src="assets/chips/dsharness.svg" alt="DeepSeek Harness" />
 
 <details>
-<summary>🌱 &nbsp;<b>这些工具我拿来做什么</b></summary>
+<summary>🌱 &nbsp;<b>这些工具我拿来做什么</b> · what every chip actually is</summary>
 <br />
 
-| | |
-| --- | --- |
-| **Python** | 课程作业、实验室脚本、数据和图像处理 |
-| **C / C++** | 数据结构与算法课的底子 |
-| **Linux / Pop!_OS** | 日常在 Pop!_OS 上写代码，命令行比图形界面顺手 |
-| **Git / GitHub** | 笔记和代码都放这儿，版本管住了才敢改 |
-| **GitHub Actions** | 自动构建和部署，笔记站就是它推上去的 |
-| **VS Code** | 主力编辑器 |
-| **ROS 2** | 机器狗二次开发：节点、话题、DDS |
-| **Unitree SDK** | Go2 的官方 SDK，正在啃 |
-| **OpenCV** | 图像处理，实验室项目里用得上 |
-| **PyTorch / NumPy** | 深度学习和数值计算 |
-| **CMake** | C++ 项目的构建 |
-| **Jupyter** | 上课实验、试探性的代码 |
-| **Obsidian / Markdown** | 笔记和复盘都写成 Markdown |
-| **DeepSeek / Gemini / Qwen / Llama** | 平时用得最多的几个模型 |
-| **OpenHanako / DeepSeek Harness** | 自己在用的智能体工具 |
+<div align="center">
+<img src="assets/chips/guide-language.svg" alt="LANGUAGE" /><br />
+<img src="assets/chips/guide-system.svg" alt="SYSTEM" /><br />
+<img src="assets/chips/guide-robotics.svg" alt="ROBOTICS" /><br />
+<img src="assets/chips/guide-notes.svg" alt="NOTES" /><br />
+<img src="assets/chips/guide-llms.svg" alt="LLMS" /><br />
+<img src="assets/chips/guide-agents.svg" alt="AGENTS" />
+</div>
 
 </details>
 

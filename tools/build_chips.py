@@ -104,21 +104,46 @@ LABEL_TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 30"
 <text x="30" y="19" font-size="11" letter-spacing="1.5" fill="#8b949e">{label}</text>
 </svg>
 """
+# 展开后那张“每个徽章到底是干什么的”卡片上的一句话
+DESC = {
+    "python": "课程作业、实验室脚本、数据和图像处理都靠它",
+    "c": "数据结构与算法课的底子，指针和内存从这里弄明白",
+    "cpp": "算法题常客，也是以后读机器人源码的门槛",
+    "markdown": "笔记和文档的默认格式，写完直接进 Git",
+    "linux": "日常写代码的地方，命令行比图形界面顺手",
+    "popos": "自己电脑上的系统，Ubuntu 底子，装着顺手",
+    "git": "每次改动都能回退，才敢放心地改",
+    "vscode": "主力编辑器，插件配齐之后就没换过",
+    "githubactions": "自动构建和部署，笔记站就是它推上去的",
+    "ros": "机器狗的骨架：节点、话题、DDS 那一套",
+    "opencv": "图像处理，实验室项目里常用",
+    "pytorch": "从跑通别人的模型开始，慢慢往训练走",
+    "cmake": "C++ 工程的构建，顺手把编译链接弄明白",
+    "unitree": "Go2 的官方 SDK，正在啃",
+    "numpy": "数值计算的底座，矩阵和数组都在这里",
+    "jupyter": "上课做实验、写试探性的代码",
+    "obsidian": "笔记都归拢在这里，靠双链找回来",
+    "deepseek": "平时问问题、改代码用得最多",
+    "gemini": "长文和资料整理的时候用",
+    "qwen": "中文任务试过，也看它的开源模型",
+    "llama": "看结构和微调入门材料时用",
+    "openhanako": "自己每天在用的智能体，记忆和人格都放在本地",
+    "dsharness": "在用的另一个智能体外壳",
+}
 
 
-def icon_markup(spec, color):
-    """图标有三种写法：@file 内嵌图片，<...> 手画片段，其余当作 path 的 d。"""
+def icon_markup(spec, color, x=11, y=8, size=14):
+    """图标有三种写法：@file 内嵌图片，<...> 手画片段，其余当作 path 的 d。
+    size 是在画布上实际绘制的边长，图标路径本身是 24×24。"""
     s = spec.strip()
+    scale = size / 24.0
     if s.startswith("@"):
         raw = (Path(__file__).resolve().parent / s[1:]).read_bytes()
         b64 = base64.b64encode(raw).decode("ascii")
-        return (
-            '<image x="10" y="7" width="16" height="16" '
-            f'href="data:image/png;base64,{b64}"/>'
-        )
+        return f'<image x="{x}" y="{y}" width="{size}" height="{size}" href="data:image/png;base64,{b64}"/>'
     if s.startswith("<"):
-        return f'<g transform="translate(11,8) scale(0.5833)" fill="{color}">{s}</g>'
-    return f'<g transform="translate(11,8) scale(0.5833)"><path d="{s}" fill="{color}"/></g>'
+        return f'<g transform="translate({x},{y}) scale({scale:.4f})" fill="{color}">{s}</g>'
+    return f'<g transform="translate({x},{y}) scale({scale:.4f})"><path d="{s}" fill="{color}"/></g>'
 
 
 def text_width(s, size=FONT_SIZE):
@@ -168,6 +193,40 @@ def build():
     return written
 
 
+def build_guides():
+    """每个分类一张卡片：图标 + 名字 + 一句说明，展开 details 时看到的就是它。"""
+    written = []
+    for label_key, row in ROWS:
+        name, petal, core = LABELS[label_key]
+        h = 60 + len(row) * 66 + 6
+        parts = [
+            f'<rect x="1" y="1" width="858" height="{h - 2}" rx="14" fill="{petal}" fill-opacity="0.05" stroke="{petal}" stroke-opacity="0.4" stroke-width="1.2"/>',
+            '<g transform="translate(30,26)"><g>'
+            '<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="16s" repeatCount="indefinite"/>'
+            f'<circle cx="0" cy="-6.5" r="3.4" fill="{core}"/><circle cx="6.2" cy="-2" r="3.4" fill="{core}"/>'
+            f'<circle cx="3.8" cy="5.3" r="3.4" fill="{core}"/><circle cx="-3.8" cy="5.3" r="3.4" fill="{core}"/>'
+            f'<circle cx="-6.2" cy="-2" r="3.4" fill="{core}"/></g><circle r="2.8" fill="{core}"/></g>',
+            f'<text x="48" y="30" font-size="11" letter-spacing="2" fill="#8b949e">{name}</text>',
+        ]
+        for i, key in enumerate(row):
+            label, color, spec = ICONS[key]
+            y = 60 + i * 66
+            parts.append(f'<rect x="30" y="{y}" width="34" height="34" rx="9" fill="{color}" fill-opacity="0.12"/>')
+            parts.append(icon_markup(spec, color, x=38, y=y + 8, size=18))
+            parts.append(f'<text x="78" y="{y + 18}" font-size="14" font-weight="700" fill="{color}">{label}</text>')
+            parts.append(f'<text x="78" y="{y + 38}" font-size="13" fill="#8b949e">{DESC[key]}</text>')
+            parts.append(f'<path d="M78 {y + 52} H 812" stroke="{color}" stroke-opacity="0.18" stroke-width="1"/>')
+        svg = (
+            '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
+            f'viewBox="0 0 860 {h}" width="860" height="{h}" font-family="Segoe UI, -apple-system, Helvetica Neue, Helvetica, Arial, sans-serif">\n'
+            f'<title>{name} field guide</title>\n' + "\n".join(parts) + "\n</svg>\n"
+        )
+        path = OUT / f"guide-{label_key}.svg"
+        path.write_text(svg, encoding="utf-8")
+        written.append(path)
+    return written
+
+
 if __name__ == "__main__":
-    for p in build():
+    for p in build() + build_guides():
         print("->", p.relative_to(ROOT))
