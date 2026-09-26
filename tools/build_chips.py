@@ -16,6 +16,7 @@
     (CC0)，只需要 24×24 viewBox 的 path d 字符串。
 """
 
+import base64
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -48,10 +49,10 @@ ICONS = {
     "gemini": ("Gemini", "#7C6BD6", "M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"),
     "qwen": ("Qwen", "#5A4FD0", "M23.919 14.545 20.817 9.17l1.47-2.544a.56.56 0 0 0 0-.566l-1.633-2.83a.57.57 0 0 0-.49-.283h-6.207L12.487.402a.57.57 0 0 0-.49-.284H8.732a.56.56 0 0 0-.49.284L5.139 5.775h-2.94a.56.56 0 0 0-.49.284L.077 8.887a.56.56 0 0 0 0 .567L3.18 14.83l-1.47 2.545a.56.56 0 0 0 0 .566l1.634 2.83a.57.57 0 0 0 .49.283h6.205l1.47 2.545a.57.57 0 0 0 .49.284h3.266a.57.57 0 0 0 .49-.284l3.104-5.375h2.94a.57.57 0 0 0 .49-.283l1.634-2.828a.55.55 0 0 0-.004-.568M8.733.686l1.634 2.828-1.634 2.828H21.8L20.164 9.17H7.425L5.63 6.06Zm1.306 19.801-6.205-.002 1.634-2.83h3.265L2.201 6.344h3.267q3.182 5.517 6.367 11.032zm10.124-5.66L18.53 12l-6.532 11.315-1.634-2.83c2.129-3.673 4.25-7.351 6.373-11.028h3.592l3.102 5.374z"),
     "llama": ("Llama", "#2A72C8", "M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"),
-    "dsharness": ("DeepSeek Harness", "#4A66D8", DEEPSEEK),
+    "dsharness": ("DeepSeek Harness", "#3C4750", DEEPSEEK),
     # 图标库里没有的，就手画一个：机器狗剪影 / 五个花瓣（Hana）
     "unitree": ("Unitree SDK", "#5A6B78", "<rect x=\"2.4\" y=\"9.4\" width=\"14\" height=\"5.6\" rx=\"2.8\"/><rect x=\"15\" y=\"6.2\" width=\"6.2\" height=\"5.4\" rx=\"1.7\"/><rect x=\"4\" y=\"14.6\" width=\"2\" height=\"5.6\" rx=\"1\"/><rect x=\"8\" y=\"14.6\" width=\"2\" height=\"5.6\" rx=\"1\"/><rect x=\"12\" y=\"14.6\" width=\"2\" height=\"5.6\" rx=\"1\"/><rect x=\"16\" y=\"14.6\" width=\"2\" height=\"5.6\" rx=\"1\"/>"),
-    "openhanako": ("OpenHanako", "#C96A8E", "<circle cx=\"12\" cy=\"5.2\" r=\"3.2\"/><circle cx=\"18.4\" cy=\"9.9\" r=\"3.2\"/><circle cx=\"15.9\" cy=\"17.6\" r=\"3.2\"/><circle cx=\"8.1\" cy=\"17.6\" r=\"3.2\"/><circle cx=\"5.6\" cy=\"9.9\" r=\"3.2\"/><circle cx=\"12\" cy=\"12\" r=\"2.3\" opacity=\"0.7\"/>"),
+    "openhanako": ("OpenHanako", "#6E8CA8", "@hana.png"),
 }
 
 # 每一行的分类标签：标签文字, 花瓣色, 花心色
@@ -75,12 +76,12 @@ ROWS = [
 ]
 
 FONT_SIZE = 12
-TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 30" width="{w}" height="30" font-family="Segoe UI, -apple-system, Helvetica Neue, Helvetica, Arial, sans-serif">
+TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 {w} 30" width="{w}" height="30" font-family="Segoe UI, -apple-system, Helvetica Neue, Helvetica, Arial, sans-serif">
 <title>{label}</title>
 <g>
 <animateTransform attributeName="transform" type="translate" values="0 1;0 -1;0 1" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1" dur="{period:.1f}s" begin="{bob:.2f}s" repeatCount="indefinite"/>
 <rect x="1" y="4" width="{iw}" height="22" rx="11" fill="{color}" fill-opacity="0.08" stroke="{color}" stroke-width="1.3"/>
-<g transform="translate(11,8) scale(0.5833)">{icon}</g>
+{icon}
 <text x="30" y="19" font-size="12" font-weight="600" fill="{color}">{label}</text>
 </g>
 </svg>
@@ -105,6 +106,21 @@ LABEL_TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 30"
 """
 
 
+def icon_markup(spec, color):
+    """图标有三种写法：@file 内嵌图片，<...> 手画片段，其余当作 path 的 d。"""
+    s = spec.strip()
+    if s.startswith("@"):
+        raw = (Path(__file__).resolve().parent / s[1:]).read_bytes()
+        b64 = base64.b64encode(raw).decode("ascii")
+        return (
+            '<image x="10" y="7" width="16" height="16" '
+            f'href="data:image/png;base64,{b64}"/>'
+        )
+    if s.startswith("<"):
+        return f'<g transform="translate(11,8) scale(0.5833)" fill="{color}">{s}</g>'
+    return f'<g transform="translate(11,8) scale(0.5833)"><path d="{s}" fill="{color}"/></g>'
+
+
 def text_width(s, size=FONT_SIZE):
     w = 0.0
     for ch in s:
@@ -125,7 +141,7 @@ def build():
     for row_index, (label_key, row) in enumerate(ROWS):
         for i, key in enumerate(row):
             label, color, d = ICONS[key]
-            icon = d if d.lstrip().startswith("<") else f'<path d="{d}" fill="{color}"/>'
+            icon = icon_markup(d, color)
             w = round(30 + text_width(label) + 13)
             svg = TEMPLATE.format(
                 w=w,
