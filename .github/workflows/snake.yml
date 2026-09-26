@@ -21,7 +21,7 @@ jobs:
           github_user_name: Lntano-S
           outputs: |
             dist/github-snake.svg?color_snake=2E425A&color_dots=EBEDF0,C8E2F4,93C4E6,5E9FD0,2E5F87
-            dist/github-snake-dark.svg?color_snake=9FD2F0&color_dots=26384C,2F5F8E,3F86C4,5EA9DC,74B8E6
+            dist/github-snake-dark.svg?color_snake=C7E6FA&color_dots=3E5266,4E7BA8,5E9FD0,78B8E4,9FD2F0
 
       - uses: crazy-max/ghaction-github-pages@v4
         with:
