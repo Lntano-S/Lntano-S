@@ -55,8 +55,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=Lntano-S&amp;hide_border=true&amp;background=0D1117&amp;stroke=27313D&amp;ring=6FB4E4&amp;fire=6FB4E4&amp;currStreakLabel=9FD2F0&amp;sideLabels=C9D1D9&amp;dates=8B949E&amp;currStreakNum=E6EDF3&amp;sideNums=E6EDF3" />
-  <img width="495" src="https://streak-stats.demolab.com?user=Lntano-S&amp;hide_border=true&amp;background=FFFFFF&amp;stroke=DBE7EF&amp;ring=4B9FD6&amp;fire=4B9FD6&amp;currStreakLabel=2E5F87&amp;sideLabels=57606A&amp;dates=8B949E&amp;currStreakNum=1F2328&amp;sideNums=1F2328" alt="连续贡献" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=Lntano-S&amp;hide_border=true&amp;background=0D1117&amp;stroke=22384F&amp;ring=6FB4E4&amp;fire=6FB4E4&amp;currStreakLabel=9FD2F0&amp;sideLabels=C9D1D9&amp;dates=8B949E&amp;currStreakNum=E6EDF3&amp;sideNums=E6EDF3" />
+  <img width="495" src="https://streak-stats.demolab.com?user=Lntano-S&amp;hide_border=true&amp;background=FFFFFF&amp;stroke=CFE3F2&amp;ring=4B9FD6&amp;fire=4B9FD6&amp;currStreakLabel=2E5F87&amp;sideLabels=57606A&amp;dates=8B949E&amp;currStreakNum=1F2328&amp;sideNums=1F2328" alt="连续贡献" />
 </picture>
 
 <br /><br />
